@@ -31,14 +31,20 @@ export async function getGithubDefaultBranchName(params: {
 
     const octokit = getOctokit();
 
-    const {
-        data: { default_branch },
-    } = await octokit.repos.get({
-        owner,
-        repo,
-    });
+    const resp = await octokit.repos
+        .get({
+            owner,
+            repo,
+        })
+        .catch(error => error);
 
-    previousResults[key] = default_branch;
+    if (resp instanceof Error) {
+        throw new Error(
+            `Can't get default branch name for ${key}: ${resp.message}`,
+        );
+    }
+
+    previousResults[key] = resp.data.default_branch;
 
     return getGithubDefaultBranchName(params);
 }
@@ -73,7 +79,7 @@ if (require.main === module) {
         }).catch(error => error);
 
         if (defaultBranchName instanceof Error) {
-            console.log(`ERROR: ${defaultBranchName.message}`);
+            console.error(defaultBranchName.message);
             process.exit(1);
         }
 
