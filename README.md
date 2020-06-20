@@ -5,7 +5,7 @@
     <i>Get the default branch name of a GitHub repo</i>
     <br>
     <br>
-    <img src="https://github.com/garronej/get-github-default-branch-name/workflows/ci/badge.svg?branch=develop">
+    <img src="https://github.com/garronej/get-github-default-branch-name/workflows/ci/badge.svg?branch=master">
     <img src="https://img.shields.io/npm/l/get-github-default-branch-name">
 </p>
 
@@ -29,17 +29,17 @@ import {
     getGithubDefaultBranchNameSync,
 } from "get-github-default-branch-name";
 
-//Prints "develop" because the default branch of garronej/get-github-default-branch-name is "develop" instead of "master"
+//Prints "develop" because the default branch of garronej/evt is "develop" instead of "master"
 getGithubDefaultBranchName({
     "owner": "garronej",
-    "repo": "get-github-default-branch-name",
+    "repo": "evt",
 }).then(defaultBranchName => console.log(defaultBranchName));
 
 //Synchronous version, avoid using if possible. Only OK for scripts.
 
 const defaultBranchName = getGithubDefaultBranchNameSync({
     "owner": "garronej",
-    "repo": "get-github-default-branch-name",
+    "repo": "evt",
 });
 
 console.log(defaultBranchName); // Prints "develop"
