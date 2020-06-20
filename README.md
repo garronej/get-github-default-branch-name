@@ -13,9 +13,9 @@
 it is a good idea to replace in your codebase the hard coded `master` word and fetch whatever the default branch is dynamically.
 
 This module provide a way to fetch the default branch name synchronously which could save you massive refactoring.  
-Of course do the cal synchronously only if you can't avoid it otherwise use the async counterpart of the method.
+Of course you should only do the call synchronously if you can't do otherwise.
 
-Previous result are saved so the request will be done only once if you call the method multiple time against the same repo.
+Previous result are saved so if you call the method multiple time against the same repo the request will be made only once.
 
 # Usage
 
