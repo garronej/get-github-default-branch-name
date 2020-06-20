@@ -39,7 +39,11 @@
         "/src/*.ts",
         "/src/tools/"
     ],
-    "keywords": [],
+    "keywords": [
+        "github",
+        "master",
+        "branch"
+    ],
     "homepage": "https://github.com/garronej/get-github-default-branch-name",
     "dependencies": {
         "@octokit/rest": "^18.0.0",
