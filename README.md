@@ -1,61 +1,49 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/6702424/80216211-00ef5280-863e-11ea-81de-59f3a3d4b8e4.png">  
+    <img src="https://user-images.githubusercontent.com/6702424/85207525-a3b80a80-b329-11ea-99d5-12f76147d2cc.png">  
 </p>
 <p align="center">
-    <i>get github default branch name</i>
+    <i>Get the default branch name of a GitHub repo</i>
     <br>
     <br>
     <img src="https://github.com/garronej/get-github-default-branch-name/workflows/ci/badge.svg?branch=develop">
-    <img src="https://img.shields.io/bundlephobia/minzip/get-github-default-branch-name">
-    <img src="https://img.shields.io/npm/dw/get-github-default-branch-name">
     <img src="https://img.shields.io/npm/l/get-github-default-branch-name">
 </p>
-<p align="center">
-  <a href="https://github.com/garronej/get-github-default-branch-name">Home</a>
-  -
-  <a href="https://github.com/garronej/get-github-default-branch-name">Documentation</a>
-</p>
 
-# Install / Import
+[The default branch name is no longer `master`](https://www.bbc.com/news/technology-53050955). To avoid things to break
+it is a good idea to replace in your codebase the hard coded `master` word and fetch whatever the default branch is dynamically.
+
+This module provide a way to fetch the default branch name synchronously which could save you massive refactoring.  
+Of course do the cal synchronously only if you can't avoid it otherwise use the async counterpart of the method.
+
+Previous result are saved so the request will be done only once if you call the method multiple time against the same repo.
+
+# Usage
 
 ```bash
 $ npm install --save get-github-default-branch-name
 ```
 
 ```typescript
-import { myFunction, myObject } from "get-github-default-branch-name";
+import {
+    getGithubDefaultBranchName,
+    getGithubDefaultBranchNameSync,
+} from "get-github-default-branch-name";
+
+//Prints "develop" because the default branch of garronej/get-github-default-branch-name is "develop" instead of "master"
+getGithubDefaultBranchName({
+    "owner": "garronej",
+    "repo": "get-github-default-branch-name",
+}).then(defaultBranchName => console.log(defaultBranchName));
+
+//Synchronous version, avoid using if possible. Only OK for scripts.
+
+const defaultBranchName = getGithubDefaultBranchNameSync({
+    "owner": "garronej",
+    "repo": "get-github-default-branch-name",
+});
+
+console.log(defaultBranchName); // Prints "develop"
 ```
-
-Specific imports:
-
-```typescript
-import { myFunction } from "get-github-default-branch-name/myFunction";
-import { myObject } from "get-github-default-branch-name/myObject";
-```
-
-## Import from HTML, with CDN
-
-Import it via a bundle that creates a global ( wider browser support ):
-
-```html
-<script src="//unpkg.com/get-github-default-branch-name/bundle.min.js"></script>
-<script>
-    const { myFunction, myObject } = get_github_default_branch_name;
-</script>
-```
-
-Or import it as an ES module:
-
-```html
-<script type="module">
-    import {
-        myFunction,
-        myObject,
-    } from "//unpkg.com/get-github-default-branch-name/zz_esm/index.js";
-</script>
-```
-
-_You can specify the version you wish to import:_ [unpkg.com](https://unpkg.com)
 
 ## Contribute
 
