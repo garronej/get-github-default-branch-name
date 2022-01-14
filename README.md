@@ -12,7 +12,7 @@
 [The default branch name is no longer `master`](https://www.bbc.com/news/technology-53050955). To avoid things to break
 it is a good idea to replace in your codebase the hard coded `master` word and fetch whatever the default branch is dynamically.
 
-This module provide a way to fetch the default branch name synchronously which could save you massive refactoring.  
+This module provide a way to fetch the default branch name synchronously which could save you lots of hours of refactoring.  
 Of course you should only do the call synchronously if you can't do otherwise.
 
 Previous result are saved so if you call the method multiple time against the same repo the request will be made only once.
