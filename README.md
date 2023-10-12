@@ -29,7 +29,7 @@ import {
     getGithubDefaultBranchNameSync,
 } from "get-github-default-branch-name";
 
-//Prints "develop" because the default branch of garronej/evt is "develop" instead of "master"
+//Prints "develop" because the default branch of garronej/evt is "main" instead of "master"
 getGithubDefaultBranchName({
     "owner": "garronej",
     "repo": "evt",
@@ -42,7 +42,7 @@ const defaultBranchName = getGithubDefaultBranchNameSync({
     "repo": "evt",
 });
 
-console.log(defaultBranchName); // Prints "develop"
+console.log(defaultBranchName); // Prints "main"
 ```
 
 ## Contribute

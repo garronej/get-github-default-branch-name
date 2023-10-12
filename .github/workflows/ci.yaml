@@ -15,11 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
-    - run: npm ci
-    - name: Making sure 'npm run lint' and 'npm run format' does not changes anything.
+    - uses: bahmutov/npm-install@v1
+    - name: Making sure 'yarn lint' and 'yarn format' does not changes anything.
       run: |
-        npm run lint:check
-        npm run format:check
+        yarn lint:check
+        yarn format:check
 
   test_node:
     runs-on: ubuntu-latest
@@ -33,9 +33,9 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node }}
-    - run: npm ci
-    - run: npm run build
-    - run: npm run test
+    - uses: bahmutov/npm-install@v1
+    - run: yarn build
+    - run: yarn test
 
   trigger_publish:
     name: Trigger publish.yaml workflow if package.json version updated ( and secrets.PAT is set ).
