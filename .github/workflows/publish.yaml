@@ -51,7 +51,7 @@ jobs:
         git branch latest
         git checkout latest
     - uses: actions/setup-node@v1
-    - run: npm ci
+    - uses: bahmutov/npm-install@v1
     - run: npm run enable_short_import_path
       env:
         DRY_RUN: "0"
