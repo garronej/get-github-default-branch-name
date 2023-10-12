@@ -6,19 +6,8 @@
         "type": "git",
         "url": "git://github.com/garronej/get-github-default-branch-name.git"
     },
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "scripts": {
-        "test": "node ./dist/test",
-        "build": "tsc",
-        "enable_short_import_path": "npm run build && denoify_enable_short_npm_import_path",
-        "lint:check": "eslint . --ext .ts,.tsx",
-        "lint": "yarn lint:check --fix",
-        "_format": "prettier '**/*.{ts,tsx,json,md}'",
-        "format": "yarn _format --write",
-        "format:check": "yarn _format --list-different",
-        "clean": "rm -rf dist deno_dist node_modules mod.ts"
-    },
+    "main": "index.js",
+    "types": "index.d.ts",
     "lint-staged": {
         "*.{ts,tsx}": [
             "eslint --fix"
@@ -35,9 +24,10 @@
     "author": "u/garronej",
     "license": "MIT",
     "files": [
-        "/dist/*.{d.ts,js,js.map}",
-        "/src/*.ts",
-        "/src/tools/"
+        "index.d.ts",
+        "index.js",
+        "index.js.map",
+        "src/index.ts"
     ],
     "keywords": [
         "github",
