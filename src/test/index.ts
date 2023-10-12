@@ -5,7 +5,7 @@ assert(
     getGithubDefaultBranchNameSync({
         "owner": "garronej",
         "repo": "evt",
-    }) === "develop",
+    }) === "main",
 );
 
 (async () => {
@@ -14,7 +14,7 @@ assert(
         "repo": "run-exclusive",
     });
 
-    assert(defaultBranchName === "develop");
+    assert(defaultBranchName === "main");
 
     console.log("PASS");
 })();

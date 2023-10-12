@@ -1,6 +1,6 @@
 {
     "name": "get-github-default-branch-name",
-    "version": "0.0.4",
+    "version": "1.0.0",
     "description": "get github default branch name",
     "repository": {
         "type": "git",
