@@ -11,7 +11,8 @@ const getOctokit = (() => {
             return octokit;
         }
 
-        octokit = new Octokit();
+        const auth = process.env["GITHUB_TOKEN"];
+        octokit = new Octokit(auth ? { auth } : undefined);
 
         return getOctokit();
     };
